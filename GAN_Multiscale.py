@@ -344,6 +344,29 @@ def saveResult(save_path,npyfile):
         im = deprocess_image(item)
         cv2.imwrite(os.path.join(save_path ,'%d.jpg'%i),im)
 ###################################Train & Validate############################
+#from tensorflow.python.profiler.model_analyzer import profile
+#from tensorflow.python.profiler.option_builder import ProfileOptionBuilder
+#print('TensorFlow:', tf.__version__)
+
+#def get_flops(model):
+#    forward_pass = tf.function(model.call,input_signature=[tf.TensorSpec(shape=(1,) + model.input_shape[1:])])
+#
+#    graph_info = profile(forward_pass.get_concrete_function().graph,options=ProfileOptionBuilder.float_operation())
+
+# The //2 is necessary since `profile` counts multiply and accumulate
+# as two flops, here we report the total number of multiply accumulate ops
+#    flops = graph_info.total_float_ops // 2
+#    return(flops)
+#d = discriminator(None,(image_size[0],image_size[1],num_channels))
+#g = generative(None,(image_size[0],image_size[1],num_channels))
+#e = enhancement(None,(image_size[0],image_size[1],num_channels))
+
+# .... Define your model here ....
+# You need to have compiled your model before calling this.
+#print(get_flops(d))
+#print(get_flops(g))
+#print(get_flops(e))
+###############################################################################
 '''Train and Validate first discriminator then Generative model'''
 
 if Training:
